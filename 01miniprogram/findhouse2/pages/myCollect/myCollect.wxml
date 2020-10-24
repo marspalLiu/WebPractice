@@ -1,0 +1,57 @@
+ <loading hidden="{{ loading }}">加载中...</loading> 
+<view class="list-tmp">
+    <!-- <view wx:if="{{shareNum==0}}">
+        <view class="list-info" bindtap="openBookListInfo" data-type="3">
+            <view class='item'>
+                <text class="list-name">我上传的</text>
+                <text class='number'>{{shareNum}}本书</text>
+            </view>
+            <view class="describe">
+                上传有收益，快来上传吧！
+            </view>
+        </view>
+    </view>
+    <view wx:else>
+        <view class="list-info" bindtap="openBookListInfo" data-type="3">
+            <view class='item'>
+                <text class="list-name">我分享的</text>
+                <text class='number'>{{shareNum}}本书</text>
+            </view>
+            <view class="describe">
+                我已上传了{{shareNum}}本书，多多上传，多多收益！
+            </view>
+        </view>
+    </view> -->
+
+
+
+    <view wx:if="{{loveNum==0}}">
+        <view class="list-info" data-type="2">
+            <view class='item'>
+                <text class="list-name">我收藏的</text>
+                <text class='number'>0 间房</text>
+            </view>
+            <view class="describe">
+                您还没有收藏过的房源信息！
+            </view>
+        </view>
+    </view>
+    <view wx:else>
+        <view class="list-info" bindtap="openBookListInfo" data-type="2">
+            <view class='item'>
+                <text class="list-name">我收藏的</text>
+                <text class='number'>{{loveNum}}间房</text>
+            </view>
+            <view class="describe">
+                这些都是您想看的房子，快去看一看吧！
+            </view>
+        </view>
+    </view>
+
+    <!-- <view class="list-info" style='height:60px;'>
+    <view class='new' bindtap='newList'>
+            <image class='logo' src='../../images/join_in.png'></image> 
+            <text class="list-name" style='margin:40px 20px 40px 20px'>新建书单</text>
+        </view>
+    </view> -->
+</view>

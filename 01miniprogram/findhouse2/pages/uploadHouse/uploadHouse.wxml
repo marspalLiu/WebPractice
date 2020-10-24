@@ -1,0 +1,117 @@
+<view class="page">
+    <view style="width:98%;margin:10px 1%">
+        <view class="name item">
+            <image src="../../images/name.png" class="item_ico"></image>
+            <text>标题</text>
+            <input class="value-right" type="text" bindinput="setTitle" placeholder="请输入标题" />
+        </view>
+        <view class="h1"></view>
+        <view class="name item">
+            <image src="../../images/babyName.png" class="item_ico"></image>
+            <text>产权</text>
+            <view class="value-right">
+                <picker bindchange="bindPickerChange" value="{{houseinfo.propertyRight}}" range="{{params.propertyArray}}">
+                    <view class="picker">
+                    {{params.propertyArray[houseinfo.propertyRight]}}
+                    </view>
+                </picker>
+            </view>
+        </view>
+        <view class="h1"></view>
+        <view class="name item">
+            <image src="../../images/babyName.png" class="item_ico"></image>
+            <text>户型</text>
+            <view class="value-right">
+                <picker bindchange="setHuXing" value="{{houseinfo.unitType}}" range="{{params.unitType}}">
+                    <view class="picker">
+                    {{params.unitType[houseinfo.unitType]}}
+                    </view>
+                </picker>
+            </view>
+        </view>
+        <view class="h1"></view>
+        <view class="school item">
+            <image src="../../images/pilot.png" class="item_ico"></image>
+            <text>朝向</text>
+            <view class="value-right">
+                <picker bindchange="setChaoXiang" value="{{houseinfo.towards}}" range="{{params.towards}}">
+                    <view class="picker">
+                    {{params.towards[houseinfo.towards]}}
+                    </view>
+                </picker>
+            </view>
+        </view>
+        <view class="h1"></view>
+        <view class="phone item">
+            <image src="../../images/telephone.png" class="item_ico"></image>
+            <text>楼层</text>
+            <input class="value-right" style='width:300rpx' bindinput='setLouCeng' type='number' placeholder='请填写楼层信息' maxlength="6" />
+        </view>
+        <view class="h1"></view>
+        <view class="phone item">
+            <image src="../../images/eMail.png" class="item_ico"></image>
+            <text>电梯</text>
+            <view class="value-right">
+                <picker bindchange="setDianTi" value="{{houseinfo.elevator}}" range="{{params.elevator}}">
+                    <view class="picker">
+                        {{params.elevator[houseinfo.elevator]}}
+                    </view>
+                </picker>
+            </view>
+        </view>
+        <view class="h1"></view>
+        <view class="phone item">
+            <image src="../../images/eMail.png" class="item_ico"></image>
+            <text>装修</text>
+            <view class="value-right">
+                <picker bindchange="setDecorate" value="{{houseinfo.decoration}}" range="{{params.decoration}}">
+                    <view class="picker">
+                        {{params.decoration[houseinfo.decoration]}}
+                    </view>
+                </picker>
+            </view>
+        </view>
+        <view class="h1"></view>
+        <view class="phone item">
+            <image src="../../images/eMail.png" class="item_ico"></image>
+            <text>面积</text>
+            <input class="value-right" style='width:300rpx' type="number" bindinput='setMianJi' type='digit' placeholder='请填写建筑面积' />
+        </view>
+        <view class="h1"></view>
+        <view class="phone item">
+            <image src="../../images/eMail.png" class="item_ico"></image>
+            <text>总价</text>
+            <input class="value-right" style='width:300rpx' type="number" bindinput='setPrice' type='digit' placeholder='请填写总价信息'/>
+        </view>
+        <view class="h1"></view>
+        <view class="item" style='height:150rpx;'>
+            <textarea class='briefIntro' maxlength='-1' placeholder='请输入补充的信息...' bindinput='setSummary' value="{{bookInfo.summary}}" />
+        </view>
+        <view class="weui-cells">
+            <view class="weui-cell">
+                <view class="weui-cell__bd">
+                    <view class="weui-uploader">
+                        <view class="weui-uploader__hd">
+                            <view class="weui-uploader__title">拍些照片会更吸引人哦（户型图）！</view>
+                            <view class="weui-uploader__info">{{imageList.length}}/{{count[countIndex]}}</view>
+                        </view>
+                        <view class="weui-uploader__bd">
+                            <view class="weui-uploader__files">
+                                <block wx:for="{{imageList}}" wx:for-item="image">
+                                    <view class="weui-uploader__file">
+                                        <image class="weui-uploader__img" src="{{image}}" data-src="{{image}}" bindtap="previewImage"></image>
+                                    </view>
+                                </block>
+                            </view>
+                            <view class="weui-uploader__input-box">
+                                <view class="weui-uploader__input" bindtap="chooseImage"></view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="clear-both"></view>
+        <button type="primary" bindtap="submitInfo"> 提交 </button>
+    </view>
+</view>

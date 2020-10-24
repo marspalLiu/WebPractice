@@ -1,0 +1,82 @@
+<loading hidden="{{ !loading }}">加载中...</loading>
+<!-- <import src="../../components/notification/notification.wxml" />
+<template is="notification" data="{{ ...$wux.notification }}" /> -->
+
+<view class="page">
+    <view style="width:98%;margin:10px 1%">
+        <view class="page-section userinfo">
+            <view class="page-body-info">
+                <!-- <view style='font-size:15px;margin-top:5px;'>
+                    请上传校园卡或者教工卡
+                </view> -->
+                <block wx:if="{{pictureFiles}}">
+                    <image src="{{pictureFiles}}" style='margin-bottom:10px' class="image" mode="aspectFit" bindtap="changePicture"></image>
+                </block>
+
+                <block wx:else>
+                    <view class="image-plus image-plus-nb" bindtap="chooseImage">
+                        <view class="image-plus-horizontal"></view>
+                        <view class="image-plus-vertical"></view>
+                    </view>
+                    <view class="image-plus-text">请上传校园卡或者教工卡</view>
+                </block>
+
+            </view>
+        </view>
+
+        <view class="name item">
+            <image src="../../images/name.png" class="item_ico"></image>
+            <text>姓名</text>
+            <input class="value-right" type="text" bindinput="setName" value="{{userInfo.realname?userInfo.realname:''}}" placeholder="请输入真实姓名" />
+        </view>
+        <view class="h1"></view>
+        <view class="name item">
+            <image src="../../images/babyName.png" class="item_ico"></image>
+            <text>卡号</text>
+            <input class="value-right" type="text" bindinput="setCardnum" value="{{userInfo.idcard?userInfo.idcard:''}}" placeholder="例如：“2019229044”" />
+        </view>
+        <view class="h1"></view>
+        <view class="school item">
+            <image src="../../images/pilot.png" class="item_ico"></image>
+            <text>类型</text>
+            <view class="value-right">
+                <!-- {{userInfo.type == 1?'女':'男'}}
+                <image src='../../images/reselect.png' style='width:12px;height:12px'></image> -->
+                <picker bindchange="setType" value="{{userInfo.type}}" range="{{params.typeArray}}">
+                    <view class="picker">
+                    {{params.typeArray[userInfo.type]}}
+                    </view>
+                </picker>
+            </view>
+        </view>
+        <view class="h1"></view>
+        <view class="phone item">
+            <image src="../../images/telephone.png" class="item_ico"></image>
+            <text>联系方式</text>
+            <input class="value-right" style='width:300rpx' type="number" bindinput="setPhone" bindblur='phoneNumberBlur' value="{{userInfo.telephone?userInfo.telephone:''}}" placeholder="请输入联系方式" maxlength="11" />
+        </view>
+        <view class="h1"></view>
+        <!-- <view class="phone item">
+            <image src="../../images/eMail.png" class="item_ico"></image>
+            <text>邮箱</text>
+            <input class="value-right" type="text" bindinput="setEMail" bindblur='emailBlur' value="{{userInfo.eMail?userInfo.eMail:''}}" placeholder="请输入邮箱" />
+        </view>
+        <view class="h1"></view> -->
+        <view id="footer" style="width:98%;margin:25px auto;">
+            <!-- <form name='pushMsgFm' report-submit="true" bindsubmit="toAuth">
+                
+            </form> -->
+            <button form-type="submit" type="primary" size="{{primarySize}}" loading="{{loading}}" plain="{{plain}}" bindtap="toAuth">
+                    认证
+                </button>
+        </view>
+    </view>
+</view>
+<!-- <view class="weui-cells__tips" style='width:100%;padding:0 0 !important;font-size:12px;color:#000;text-align:center;position:fixed;z-index:100px;bottom:10px;'>对此有疑问？</view> -->
+
+<view style='font-size:12px;width:100%;text-align:center;display:inline-block;position:fixed;z-index:100px;bottom:5px'>
+    <checkbox-group bindchange="haveAgree">
+        <checkbox value="1" checked='{{agree}}' />我已详细阅读并同意
+        <text style='color:#003366' bindtap='openAgreement'>天大房屋租赁平台使用许可及服务协议</text>
+    </checkbox-group>
+</view>

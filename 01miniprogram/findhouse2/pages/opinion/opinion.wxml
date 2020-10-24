@@ -1,0 +1,45 @@
+ <!-- <view class='box1'>
+    <view style='background:#fff;'>
+        <input type='text' placeholder='搜索' style='width:80%;float:left;vertical-align:bottom;padding-left:12rpx' placeholder-style='padding-left:10rpx' class='text' auto-focus />
+        <icon type="search" size="18" color="#666666" style='float:right;margin-right:20rpx;margin-top: 18rpx;' />
+        <view style='clear:both'></view>
+    </view>
+</view>
+<view>
+    <text class='text' style='font-size:24rpx'>热点问题</text>
+</view>
+<view style='width:100%' class='box1'>
+    <view class='box2'>
+        <text class='text'>如何借书</text>
+        <image class='photo' src='../../images/right.png'></image>
+    </view>
+    <view class='box2'>
+        <text class='text'>如何还书</text>
+        <image class='photo' src='../../images/right.png'></image>
+    </view>
+    <view class='box2'>
+        <text class='text'>如何充值</text>
+        <image class='photo' src='../../images/right.png'></image>
+    </view>
+</view> -->
+<view class='pos-1'>
+    <!-- <view class='box3' bindtap='openConsult' data-type='1'>
+        <text>全部问题</text>
+    </view>
+    <view class='box3' bindtap='openConsult' data-type='2'>
+        <text>快捷帮助</text>
+    </view> -->
+    <view class='box3' style='width:100%' bindtap='openConsult' data-type='3'>
+        <text>我的反馈</text>
+    </view>
+</view> 
+
+<view class="font_size" style="width: 100%;margin-left: 0">
+    <form method="post">
+        <!-- <text class="feedback" for="feedbackText">意见内容:</text> -->
+        <textarea class="feedbackText" placeholder="请提出您的宝贵意见!" bindinput="setContent"></textarea>
+        <!-- <label for="comPhone" class="comPhone">联系电话：</label>
+        <input type="number" class="comPhoneNum" id="comPhone" name="comPhone" /> -->
+        <button class="submit" bindtap="submitOpinion">确定</button>
+    </form>
+</view>

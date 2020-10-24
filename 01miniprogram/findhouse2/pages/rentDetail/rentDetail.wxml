@@ -1,0 +1,133 @@
+<import src="../../components/notification/notification.wxml" />
+
+<view style='background:#f4f4f4;'>
+    <!-- <loading hidden="{{ !loading }}">加载中...</loading> -->
+    <!-- 轮播图 -->
+    <view style='margin: 0 1.5%;margin-top:1.5%;'>
+        <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" style='height:500rpx; background:#FFF;'>
+            <block>
+                <swiper-item>
+                    <image src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2020540769,117545162&fm=26&gp=0.jpg" bindload='imageLoad' bindtap='previewImage' class="slide-image" width="355" height="150" data-index="{{ index }}" bindtap="delete" style="width:{{ images[index].width }}rpx; height:{{ images[index].height }}rpx;margin-left:{{ images[index].marginLeftWidth }}rpx;"
+                    />
+                </swiper-item>
+                <swiper-item>
+                    <image src="https://midpf-mp-pub.cdn.bcebos.com/25cbf7595fdc6d48ee238c3084b781b8_1585276123181.jpeg?@w_2200,h_1224,s_2" bindload='imageLoad' bindtap='previewImage' class="slide-image" width="355" height="150" data-index="{{ index }}" bindtap="delete" style="width:{{ images[index].width }}rpx; height:{{ images[index].height }}rpx;margin-left:{{ images[index].marginLeftWidth }}rpx;"
+                    />
+                </swiper-item>
+            </block>
+        </swiper>
+    </view>
+    <!--轮播图结束  -->
+    <!-- 书籍信息 -->
+    <view style='background:#fff;margin: 0 1.5%;'>
+        <view class='meta' style='padding: 2rpx 5rpx;'>
+            <view class='title'>（租）{{hourseInfo.title}}</view>
+            <view class='price'>
+                <text class='big-price'>{{hourseInfo.acreage}}</text>
+                <text class='small-price'>㎡</text>
+            </view>
+            <view class='location'>
+                <text class='big-price'>{{hourseInfo.price}}</text>
+                <text class='small-price'>w</text>
+            </view>
+        </view>
+    </view>
+    <!--书籍信息结束  -->
+    <!-- <view bindtap='alertLocation' class='age' data-value="{{bookInfo.location}}" style='font-size:16px;'>
+        <text>详细地址：</text>
+        <text>津南吾悦广场附近</text>
+    </view> -->
+    <!-- 适龄 -->
+    <view class='age'>
+        <view style='font-size:16px;'>
+            整租：<text>{{params.wholeRentArray[hourseInfo.wholerent]}}</text>
+        </view>
+    </view>
+    <!-- 最大人数 -->
+    <view class='age'>
+        <view style='font-size:16px;'>
+            最多人数：<text>{{hourseInfo.maxpeople}}</text>
+        </view>
+    </view>
+    <!-- 户型： -->
+    <view class='sort'>
+        <view style='font-size:16px;'>
+            户型：<text>{{params.unitType[hourseInfo.unittype]}}</text>
+        </view>
+    </view>
+    <!-- 户型：结束 -->
+    <view class='sort'>
+        <view style='font-size:16px;'>
+            楼层：<text>第{{hourseInfo.floor}}层</text>
+        </view>
+    </view>
+    <view class='sort'>
+        <view style='font-size:16px;'>
+            装修情况：<text>{{params.decoration[hourseInfo.decoration]}}</text>
+        </view>
+    </view>
+    <view class='sort'>
+        <view style='font-size:16px;'>
+            有无电梯：<text>{{params.elevator[hourseInfo.elevator]}}</text>
+        </view>
+    </view>
+    <view class='divLine'></view>
+    <!--摘要  -->
+    <view class='abstract'>
+        <view class='abstract_title'>摘要：</view>
+        <view class='abstract_text'>{{hourseInfo.description}}</view>
+    </view>
+    <!--摘要结束  -->
+    <view class='divLine'></view>
+    <!--评论  -->
+    <view wx:if="{{commentInfo != 'none'}}" wx:for="{{commentInfo}}" wx:for-index="index" wx:for-item="comment">
+        <view class="comment" style="width：97%;margin: 0 1.5%;margin-bottom:7px;padding: 5px 10px;">
+            <view style="width:100%;">
+                <view class="left" style="width:15%;float:left;">
+                    <image class='user_img' src="{{comment.favicon}}"></image>
+                    <!-- <view style='clear:both'></view> -->
+                </view>
+                <view class="center" style="float:left;width:85%;padding-top: 0px!important;margin-top: 5px;text-align:left;">
+                    <span class="user_name">{{comment.nickName}}</span>
+                    <span class="user_score">{{comment.book_content?comment.book_content:2.5}}分</span>
+                </view>
+                <view style='clear:both'></view>
+            </view>
+            <view class="comment_text">
+                {{comment.card_content}}
+            </view>
+            <view class='comment_time'>——{{comment.create_at}}</view>
+        </view>
+    </view>
+
+    <!--评论结束  -->
+</view>
+<view style='width:100%;height:50px'></view>
+<view id="footer" style="display:block;bottom:0px;position:fixed;width:100%;height:50px;z-index:1000px;background:#fff">
+    <view type="submit" bindtap="cancelLove" wx:if="{{bookInfo.haveLoved ==1 || haveLoved ==1}}" style="width:30%;border-right: 2px solid #f0f0f0;" class="bottom-operate">
+        <view>
+            <image src='../../images/like-active.png' class='like'></image>
+        </view>
+        <view>
+            <span>取消</span>
+        </view>
+    </view>
+    <view type="submit" bindtap="addLove" wx:elif="{{bookInfo.haveLoved !=1 || haveLoved ==0}}" style="width:30%;border-right: 2px solid #f0f0f0;" class="bottom-operate">
+        <view>
+            <image src='../../images/like.png' class='like'></image>
+        </view>
+        <view>
+            <span>收藏</span>
+        </view>
+    </view>
+    <form name='pushMsgFm' report-submit="true" data-sharingid="{{book.sharing_id}}" data-canshareid="{{book.can_share_id}}" data-openid="{{book.openId}}" bindsubmit="borrowBook">
+        <button form-type="submit" class="refuse" style="width:69%;background:#75a8f9;float:right;line-height:50px;font-size:15px;padding-top:0px;color:#fff" class="bottom-operate" wx:if="{{selfId == bookInfo.owner_id}}">
+            联系他
+        </button>
+        <view type="submit" bindtap="selfBook" style="width:69%;background:#f7f7f7;float:right;line-height:50px;font-size:15px;padding-top:0px;color:#000" class="bottom-operate" wx:else>
+            <image src='../../images/disabled.png' style='width:13px;height:13px;'></image>
+            自己的房子
+        </view>
+    </form>
+
+</view>

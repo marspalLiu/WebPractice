@@ -1,0 +1,66 @@
+.font_size {
+    font-size: 15px;
+}
+
+.submit {
+    background-color: #f60;
+    width: 80%;
+    color: #f9f9f9;
+}
+
+.feedbackText {
+    width: 90%;
+    min-height: 200px;
+    max-height: 500px;
+    height: 200px;
+    margin: 5px auto 10px auto;
+    padding: 5px;
+    border: 1px solid #e0e0e0;
+    background-color: #fff;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+/* pages/helpList/helpList.wxss */
+.box1{
+    margin-bottom: 20rpx;
+}
+.box2{
+    border-width: 2rpx;
+    border-color:#f4f4f4;
+    border-style: solid;
+    background: white;
+    height: 80rpx;
+    line-height: 80rpx 
+}
+.box3{
+    border-right-width: 2rpx;
+    border-color:#f4f4f4;
+    border-style: solid;
+    background: white; 
+    float: left;
+    text-align: center;
+    height: 80rpx;
+    line-height: 80rpx;
+    font-size: 28rpx;
+    width: 32%
+}
+.text{
+    font-size: 28rpx;
+    align-self: left;
+    margin-left: 20rpx;
+    padding: 16rpx;
+}
+.photo {
+    height: 60rpx;
+    width:60rpx;
+    float: right;
+    margin-top: 10rpx
+}
+.pos-1{
+    position: absolute;
+    bottom:0%;
+    font-size: 38rpx;
+    /* background: white; */
+    width: 100%
+}

@@ -1,0 +1,64 @@
+<view class="page">
+    <view class="page__hd">
+    </view>
+    <view class="page__bd">
+		<wux-search-bar clear maxlength="8" />
+        <wux-filterbar items="{{ type == 'rent'?rentItems:saleItems }}" bind:change="onChangeFilter" bind:open="onOpen" bind:close="onClose" />
+        <view class="panel panel_access" catchtouchmove="{{ opened ? 'noop' : '' }}">
+            <view class="panel__bd">
+                <view class="media-box media-box_appmsg" hover-class="cell_active" wx:if="{{type == 'rent'}}" wx:for="{{ repos }}" wx:key="index">
+                    <block >
+                        <view class="media-box__hd media-box__hd_in-appmsg">
+                            <image class="media-box__thumb" src="{{ item.pic1 }}" />
+                        </view>
+                        <view class="media-box__bd media-box__bd_in-appmsg" bindtap="openHouseDetail" data-id="{{item.rentid}}" data-type="{{'rent'}}">
+                            <view class="media-box__title">{{ item.title }}</view><!-- -->
+                            <view class="media-box__desc">{{ item.description }}</view>
+                            <view class="media-box__info">
+                                <view class="media-box__info__meta">{{ item.acreage }}平米</view>
+                                <view class="media-box__info__meta">{{ item.price }}w</view>
+                                <view class="media-box__info__meta">{{ item.wholeRent }}</view>
+                                <view class="media-box__info__meta">最多{{ item.maxpeople }}人</view>
+                                <view class="media-box__info__meta">{{ item.unitType }}</view>
+                                <view class="media-box__info__meta">{{ item.floor }}层</view>
+                                <view class="media-box__info__meta">{{ item.elevator }}电梯</view>
+                                <view class="media-box__info__meta">{{ item.decoration }}</view>
+                                <view class="media-box__info__meta">{{ item.furniture }}</view>
+                                <view class="media-box__info__meta">发布时间: {{ item.createAt }}</view>
+                            </view>
+                        </view>
+                    </block>
+                </view>
+                <view class="media-box media-box_appmsg" hover-class="cell_active" wx:if="{{type == 'sale'}}" wx:for="{{ repos }}" wx:key="index">
+                    <block >
+                        <view class="media-box__hd media-box__hd_in-appmsg">
+                            <image class="media-box__thumb" src="{{ item.pic1 }}" />
+                        </view>
+                        <view class="media-box__bd media-box__bd_in-appmsg" bindtap="openHouseDetail" data-id="{{item.saleid}}" data-type="{{'sale'}}">
+                            <view class="media-box__title">{{ item.title }}</view><!-- -->
+                            <view class="media-box__desc">{{ item.description }}</view>
+                            <view class="media-box__info">
+                                <view class="media-box__info__meta">类型: {{ item.wholeRent }}</view>
+                                <view class="media-box__info__meta">户型: {{ item.unitType }}</view>
+                                <view class="media-box__info__meta">电梯: {{ item.elevator }}</view>
+                                <view class="media-box__info__meta">{{ item.furniture }}</view>
+                                <view class="media-box__info__meta">层数: {{ item.floor }}</view>
+                                <view class="media-box__info__meta">date: {{ item.createAt }}</view>
+                            </view>
+                        </view>
+                    </block>
+                </view>
+            </view>
+        </view>
+		<wux-fab-button
+            position="bottomRight"
+            theme="balanced"
+            direction="vertical"
+            buttons="{{ buttons }}"
+            bind:change="onChange"
+            bind:click="onClick"
+            bind:contact="onContact"
+            bind:getuserinfo="onGotUserInfo"
+        />
+    </view>
+</view>
