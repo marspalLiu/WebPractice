@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cc.mrbird.febs.web.dao.UserMapper">
+  <resultMap id="BaseResultMap" type="cc.mrbird.febs.web.domain.User">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <result column="userID" jdbcType="INTEGER" property="userid" />
+    <result column="openID" jdbcType="VARCHAR" property="openid" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="sex" jdbcType="VARCHAR" property="sex" />
+    <result column="realname" jdbcType="VARCHAR" property="realname" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="telephone" jdbcType="VARCHAR" property="telephone" />
+    <result column="idcard" jdbcType="VARCHAR" property="idcard" />
+    <result column="cardpic" jdbcType="VARCHAR" property="cardpic" />
+    <result column="avatar" jdbcType="VARCHAR" property="avatar" />
+    <result column="create_at" jdbcType="VARCHAR" property="createAt" />
+    <result column="is_checked" jdbcType="INTEGER" property="isChecked" />
+  </resultMap>
+</mapper>

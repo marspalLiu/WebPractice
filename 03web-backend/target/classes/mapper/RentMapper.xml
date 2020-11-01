@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cc.mrbird.febs.web.dao.RentMapper">
+  <resultMap id="BaseResultMap" type="cc.mrbird.febs.web.domain.Rent">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <result column="rentID" jdbcType="INTEGER" property="rentid" />
+    <result column="userID" jdbcType="INTEGER" property="userid" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="wholeRent" jdbcType="INTEGER" property="wholerent" />
+    <result column="maxPeople" jdbcType="INTEGER" property="maxpeople" />
+    <result column="unitType" jdbcType="VARCHAR" property="unittype" />
+    <result column="floor" jdbcType="INTEGER" property="floor" />
+    <result column="elevator" jdbcType="INTEGER" property="elevator" />
+    <result column="acreage" jdbcType="INTEGER" property="acreage" />
+    <result column="price" jdbcType="DOUBLE" property="price" />
+    <result column="request" jdbcType="VARCHAR" property="request" />
+    <result column="decoration" jdbcType="VARCHAR" property="decoration" />
+    <result column="furniture" jdbcType="VARCHAR" property="furniture" />
+    <result column="pic1" jdbcType="VARCHAR" property="pic1" />
+    <result column="pic2" jdbcType="VARCHAR" property="pic2" />
+    <result column="pic3" jdbcType="VARCHAR" property="pic3" />
+    <result column="pic4" jdbcType="VARCHAR" property="pic4" />
+    <result column="pic5" jdbcType="VARCHAR" property="pic5" />
+    <result column="create_at" jdbcType="VARCHAR" property="createAt" />
+    <result column="is_displayed" jdbcType="INTEGER" property="isDisplayed" />
+    <result column="is_deleted" jdbcType="INTEGER" property="isDeleted" />
+    <result column="is_rented" jdbcType="INTEGER" property="isRented" />
+    <result column="is_checked" jdbcType="INTEGER" property="isChecked" />
+  </resultMap>
+</mapper>
